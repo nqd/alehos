@@ -18,7 +18,6 @@ describe('Alehos', () => {
       }
     };
     const context = {};
-    console.log(app);
 
     app.handler(event, context, (err, payload) => {
       expect(err).to.be.null;
