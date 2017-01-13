@@ -4,7 +4,8 @@
   "description": "Make Alexa homeskill quick",
   "main": "index.js",
   "scripts": {
-    "test": "npm run test"
+    "syntax-test": "eslint .",
+    "test": "mocha test/*"
   },
   "repository": {
     "type": "git",
@@ -20,5 +21,14 @@
   "bugs": {
     "url": "https://github.com/nqd/alexa-homeskill-sdk/issues"
   },
-  "homepage": "https://github.com/nqd/alexa-homeskill-sdk#readme"
+  "homepage": "https://github.com/nqd/alexa-homeskill-sdk#readme",
+  "devDependencies": {
+    "babel-eslint": "^7.1.1",
+    "eslint": "^3.13.1",
+    "mocha": "^3.2.0",
+    "pre-commit": "^1.2.2"
+  },
+  "pre-commit": [
+    "syntax-test"
+  ]
 }
