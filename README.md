@@ -9,19 +9,25 @@ So that you dont need to write boilerplate code for Alexa Home Skill with Nodejs
 ```
 var alehos = require('alehos);
 
-alehos.discover = function(req, res) {
+var app = new alehos();
+
+app.discover = function(req, res) {
   res.send({});
 };
 
-alehos.temperature = function(req, res) {
+app.temperature = function(req, res) {
   res.send({});
 };
 
-alehos.percentage = function(req, res) {
+app.percentage = function(req, res) {
   res.send({});
 };
 
-exports.handler = alehos;
+app.percentage = function(req, res) {
+  res.send({});
+};
+
+exports.handler = app;
 ```
 
 # Coding style
