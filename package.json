@@ -1,0 +1,24 @@
+{
+  "name": "alexa-homeskill-sdk",
+  "version": "0.1.0",
+  "description": "Make Alexa homeskill quick",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nqd/alexa-homeskill-sdk.git"
+  },
+  "keywords": [
+    "alexa",
+    "homeskill",
+    "sdk"
+  ],
+  "author": "Dinh Nguyen <dinh.nguyen@veriksystems.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nqd/alexa-homeskill-sdk/issues"
+  },
+  "homepage": "https://github.com/nqd/alexa-homeskill-sdk#readme"
+}
