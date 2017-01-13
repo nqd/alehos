@@ -23,7 +23,7 @@ app.percentage = function(req, res) {
   res.send({});
 };
 
-app.percentage = function(req, res) {
+app.heath = function(req, res) {
   res.send({});
 };
 
