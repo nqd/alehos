@@ -9,7 +9,7 @@ describe('Alehos', () => {
     const event = {
       'header': {
         'messageId': '243550dc-5f95-4ae4-ad43-4e1e7cb037fd',
-        'name': ' HealthCheckRequest',
+        'name': 'HealthCheckRequest',
         'namespace': 'Alexa.ConnectedHome.System',
         'payloadVersion': '2'
       },
