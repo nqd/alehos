@@ -25,14 +25,27 @@ Alehos.prototype.handler = function(event, context, cb) {
   let res = {};
   let type = event && event.header && event.header.name;
   switch (type) {
-    case this.code.REQUEST_DISCOVER:
+    case this.code.REQUEST_HEALTHCHECK:
+    this._handFn = this.healthCheck;
     break;
 
-    default:
-    res.code = this.code.ERROR_UNSUPPORTED_OPERATION;
+    // default:
+    // res.code = this.code.ERROR_UNSUPPORTED_OPERATION;
   }
 
-  return cb(null, this._createDirective(res));
+  // without supported function
+  if (this._handFn === undefined) {
+    res.code = this.code.ERROR_UNSUPPORTED_OPERATION;
+    return cb(null, this._createDirective(res));
+  }
+
+  let req = {
+    event: event,
+    context: context
+  };
+  this._handFn(req, res => {
+    return cb(null, this._createDirective(res));
+  });
 };
 
 module.exports = Alehos;

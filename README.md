@@ -4,6 +4,8 @@
 
 So that you dont need to write boilerplate code for Alexa Home Skill with Nodejs.
 
+FYI, look at [API reference](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/smart-home-skill-api-reference).
+
 # How to use
 
 ```
@@ -23,7 +25,7 @@ app.percentage = function(req, res) {
   res.send({});
 };
 
-app.heath = function(req, res) {
+app.healthCheck = function(req, res) {
   res.send({});
 };
 
