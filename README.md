@@ -4,24 +4,32 @@
 
 So that you dont need to write boilerplate code for Alexa Home Skill with Nodejs.
 
+FYI, look at [API reference](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/smart-home-skill-api-reference).
+
 # How to use
 
 ```
 var alehos = require('alehos);
 
-alehos.discover = function(req, res) {
+var app = new alehos();
+
+app.discover = function(req, res) {
   res.send({});
 };
 
-alehos.temperature = function(req, res) {
+app.temperature = function(req, res) {
   res.send({});
 };
 
-alehos.percentage = function(req, res) {
+app.percentage = function(req, res) {
   res.send({});
 };
 
-exports.handler = alehos;
+app.healthCheck = function(req, res) {
+  res.send({});
+};
+
+exports.handler = app;
 ```
 
 # Coding style
