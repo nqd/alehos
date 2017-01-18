@@ -8,21 +8,25 @@ let Alehos = function() {
 };
 
 Alehos.prototype._createDirective = function(res) {
-  let msg;
-  if (res && res.code === this.code.ERROR_UNSUPPORTED_OPERATION) {
-    msg = utils.createDirective(
-      utils.createHeader(
-        this.code.NAMESPACE_CONTROL,
-        this.code.ERROR_UNSUPPORTED_OPERATION),
+  if (res instanceof Error) {
+    return utils.createDirective(
+      utils.createHeader(this.code.NAMESPACE_CONTROL, res.code),
       {}
     );
   }
 
-  return msg;
+  // else
+  if (res instanceof Object) {
+    return utils.createDirective(
+      utils.createHeader(
+        this.code.NAMESPACE_CONTROL,
+        this.code.RESPONSE_HEALTHCHECK),
+      res
+    );
+  }
 };
 
 Alehos.prototype.handler = function(event, context, cb) {
-  let res = {};
   let type = event && event.header && event.header.name;
   switch (type) {
     case this.code.REQUEST_HEALTHCHECK:
@@ -35,8 +39,9 @@ Alehos.prototype.handler = function(event, context, cb) {
 
   // without supported function
   if (this._handFn === undefined) {
-    res.code = this.code.ERROR_UNSUPPORTED_OPERATION;
-    return cb(null, this._createDirective(res));
+    let err = new Error();
+    err.code = this.code.ERROR_UNSUPPORTED_OPERATION;
+    return cb(null, this._createDirective(err));
   }
 
   let req = {
