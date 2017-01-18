@@ -62,11 +62,42 @@ describe('Alehos', () => {
   });
 
   describe('Get Handler Function', () => {
-    it('should call discovery fnc', (done) => {
+    beforeEach(() => {
+      app.discover = function(_req, _cb) {};
+      app.onoff = function(_req, _cb) {};
+      app.temperature = function(_req, _cb) {};
+      app.percentage = function(_req, _cb) {};
+      app.healthCheck = function(_req, _cb) {};
     });
-    it('should call on/off fnc', (done) => {
+    let expect = require('chai').expect;
+    it('should call discovery fnc from discovery event', (done) => {
+      // given
+      const event = events.reqDiscovery;
+      // when
+      let hlrFn = app.getHlrFn(event.header.name);
+      // then
+      expect(hlrFn).to.eq(app.discover);
+      done();
     });
-    it('should call discovery fnc', (done) => {
+    it('should call on/off fnc from turnOn event', (done) => {
+      // given
+      const event = events.reqTurnOn;
+      // when
+      let hlrFn = app.getHlrFn(event.header.name);
+      // then
+      expect(hlrFn).to.eq(app.onoff);
+      done();
     });
+    it('should call on/off fnc from turnOff event', (done) => {
+      // given
+      const event = events.reqTurnOff;
+      // when
+      let hlrFn = app.getHlrFn(event.header.name);
+      // then
+      expect(hlrFn).to.eq(app.onoff);
+      done();
+    });
+    // it('should call discovery fnc', (done) => {
+    // });
   });
 });

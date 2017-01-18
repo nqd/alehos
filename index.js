@@ -26,19 +26,23 @@ Alehos.prototype._createDirective = function(res) {
   }
 };
 
-Alehos.prototype.getHlrFn = function(code) {
+Alehos.prototype.getHlrFn = function(type) {
+  let fn;
+  switch (type) {
+    case this.code.REQUEST_HEALTHCHECK:
+    fn = this.healthCheck;
+    break;
+
+    case this.code.REQUEST_DISCOVER:
+    fn = this.discover;
+    break;
+  }
+  return fn;
 };
 
 Alehos.prototype.handler = function(event, context, cb) {
   let type = event && event.header && event.header.name;
-  switch (type) {
-    case this.code.REQUEST_HEALTHCHECK:
-    this._handFn = this.healthCheck;
-    break;
-
-    // default:
-    // res.code = this.code.ERROR_UNSUPPORTED_OPERATION;
-  }
+  this._handFn = this.getHlrFn(type);
 
   // without supported function
   if (this._handFn === undefined) {
