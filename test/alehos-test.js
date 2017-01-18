@@ -43,13 +43,15 @@ describe('Alehos', () => {
       description: 'The system is currently healthy',
       isHealthy: true
     };
-    app.healthCheck = sinon.stub().yields(null, healthCheckRes);
+    // app.healthCheck = sinon.stub().yields(healthCheckRes);
+    app.healthCheck = (req, cb) => {
+      return cb(healthCheckRes);
+    };
     // when
     let resSpy = sinon.spy();
     app.handler(event, context, resSpy);
     // then
     let matched = obj => {
-      console.log(obj);
       return obj.header.name === 'HealthCheckResponse' &&
         _.isEqual(obj.payload, healthCheckRes);
     };
