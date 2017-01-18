@@ -9,5 +9,46 @@
     "payload": {
       "initiationTimestamp": "1435302567000"
     }
+  },
+  "reqDiscovery": {
+    "header": {
+      "messageId": "6d6d6e14-8aee-473e-8c24-0d31ff9c17a2",
+      "name": "DiscoverAppliancesRequest",
+      "namespace": "Alexa.ConnectedHome.Discovery",
+      "payloadVersion": "2"
+    },
+    "payload": {
+      "accessToken": "*OAuth Token here*"
+    }
+  },
+  "reqTurnOn": {
+    "header": {
+      "messageId": "01ebf625-0b89-4c4d-b3aa-32340e894688",
+      "name": "TurnOnRequest",
+      "namespace": "Alexa.ConnectedHome.Control",
+      "payloadVersion": "2"
+    },
+    "payload": {
+      "accessToken": "[OAuth Token here]",
+      "appliance": {
+        "additionalApplianceDetails": {},
+        "applianceId": "[Device ID for Ceiling Fan]"
+      }
+    }
+  },
+  "reqTurnOff": {
+    "header": {
+      "messageId": "01ebf625-0b89-4c4d-b3aa-32340e894688",
+      "name": "TurnOffRequest",
+      "namespace": "Alexa.ConnectedHome.Control",
+      "payloadVersion": "2"
+    },
+    "payload": {
+      "accessToken": "[OAuth Token here]",
+      "appliance": {
+        "additionalApplianceDetails": {},
+        "applianceId": "[Device ID for Ceiling Fan]"
+      }
+    }
   }
 }

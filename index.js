@@ -26,6 +26,9 @@ Alehos.prototype._createDirective = function(res) {
   }
 };
 
+Alehos.prototype.getHlrFn = function(code) {
+};
+
 Alehos.prototype.handler = function(event, context, cb) {
   let type = event && event.header && event.header.name;
   switch (type) {

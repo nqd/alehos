@@ -60,4 +60,13 @@ describe('Alehos', () => {
       sinon.match(matched)
     );
   });
+
+  describe('Get Handler Function', () => {
+    it('should call discovery fnc', (done) => {
+    });
+    it('should call on/off fnc', (done) => {
+    });
+    it('should call discovery fnc', (done) => {
+    });
+  });
 });
