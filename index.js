@@ -5,6 +5,7 @@ let utils = require('./lib/utils');
 
 let Alehos = function() {
   this.code = code;
+  this.getHlrFn = utils.getHlrFn;
 };
 
 Alehos.prototype._createDirective = function(res) {
@@ -24,37 +25,6 @@ Alehos.prototype._createDirective = function(res) {
       res
     );
   }
-};
-
-Alehos.prototype.getHlrFn = function(type) {
-  let fn;
-  switch (type) {
-    case this.code.REQUEST_HEALTHCHECK:
-    fn = this.healthCheck;
-    break;
-
-    case this.code.REQUEST_DISCOVER:
-    fn = this.discover;
-    break;
-
-    case this.code.REQUEST_TURN_ON:
-    case this.code.REQUEST_TURN_OFF:
-    fn = this.onoff;
-    break;
-
-    case this.code.REQUEST_SET_TEMPERATURE:
-    case this.code.REQUEST_INC_TEMPERATURE:
-    case this.code.REQUEST_DEC_TEMPERATURE:
-    fn = this.temperature;
-    break;
-
-    case this.code.REQUEST_SET_PERCENTAGE:
-    case this.code.REQUEST_INC_PERCENTAGE:
-    case this.code.REQUEST_DEC_PERCENTAGE:
-    fn = this.percentage;
-    break;
-  }
-  return fn;
 };
 
 Alehos.prototype.handler = function(event, context, cb) {
