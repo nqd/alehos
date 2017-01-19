@@ -1,6 +1,7 @@
 'use strict';
 let Alehos = require('../index');
 let events = require('./events.json');
+let expect = require('chai').expect;
 
 describe('Utils', () => {
   let app;
@@ -15,7 +16,6 @@ describe('Utils', () => {
       app.percentage = function(_req, _cb) {};
       app.healthCheck = function(_req, _cb) {};
     });
-    let expect = require('chai').expect;
     it('should call discovery fnc from discovery event', () => {
       const event = events.reqDiscovery;
 
