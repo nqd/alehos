@@ -11,21 +11,22 @@ let Alehos = function() {
 
 Alehos.prototype.handler = function(event, context, cb) {
   let type = event && event.header && event.header.name;
+  let req = {
+    event: event,
+    context: context
+  };
+
   this._handFn = this.getHlrFn(type);
 
   // without supported function
   if (this._handFn === undefined) {
     let err = new Error();
     err.code = this.code.ERROR_UNSUPPORTED_OPERATION;
-    return cb(null, this.genRes(err));
+    return cb(null, this.genRes(req, err));
   }
 
-  let req = {
-    event: event,
-    context: context
-  };
   this._handFn(req, res => {
-    return cb(null, this.genRes(res));
+    return cb(null, this.genRes(req, res));
   });
 };
 
