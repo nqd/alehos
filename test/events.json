@@ -119,5 +119,59 @@
         "value": 1
       }
     }
+  },
+  "reqSetPercentage": {
+    "header": {
+      "messageId": "95872301-4ff6-4146-b3a4-ae84c760c13e",
+      "name": "SetPercentageRequest",
+      "namespace": "Alexa.ConnectedHome.Control",
+      "payloadVersion": "2"
+    },
+    "payload": {
+      "accessToken": "[OAuth Token here]",
+      "appliance": {
+        "additionalApplianceDetails": {},
+        "applianceId": "[Device ID for Cinema Room Light]"
+      },
+      "percentageState": {
+        "value": 50.0
+      }
+    }
+  },
+  "reqIncPercentage": {
+    "header": {
+      "messageId": "a0c739b9-4c12-48c9-88c7-fc2e1f051b0b",
+      "name": "IncrementPercentageRequest",
+      "namespace": "Alexa.ConnectedHome.Control",
+      "payloadVersion": "2"
+    },
+    "payload": {
+      "accessToken": "[OAuth Token here]",
+      "appliance": {
+        "additionalApplianceDetails": {},
+        "applianceId": "[Device ID for Cinema Room Light]"
+      },
+      "deltaPercentage": {
+        "value": 10.0
+      }
+    }
+  },
+  "reqDecPercentage": {
+    "header": {
+      "messageId": "7048c18d-4141-4871-bf0e-da3e54dee3f7",
+      "name": "DecrementPercentageRequest",
+      "namespace": "Alexa.ConnectedHome.Control",
+      "payloadVersion": "2"
+    },
+    "payload": {
+      "accessToken": "[OAuth Token here]",
+      "appliance": {
+        "additionalApplianceDetails": {},
+        "applianceId": "[Device ID for Cinema Room Light]"
+      },
+      "deltaPercentage": {
+        "value": 20.0
+      }
+    }
   }
 }

@@ -118,5 +118,29 @@ describe('Alehos', () => {
       // then
       expect(hlrFn).to.eq(app.temperature);
     });
+    it('should call percentage fnc from set percentage event', () => {
+      // given
+      const event = events.reqSetPercentage;
+      // when
+      let hlrFn = app.getHlrFn(event.header.name);
+      // then
+      expect(hlrFn).to.eq(app.percentage);
+    });
+    it('should call percentage fnc from inc percentage event', () => {
+      // given
+      const event = events.reqIncPercentage;
+      // when
+      let hlrFn = app.getHlrFn(event.header.name);
+      // then
+      expect(hlrFn).to.eq(app.percentage);
+    });
+    it('should call percentage fnc from dec percentage event', () => {
+      // given
+      const event = events.reqDecPercentage;
+      // when
+      let hlrFn = app.getHlrFn(event.header.name);
+      // then
+      expect(hlrFn).to.eq(app.percentage);
+    });
   });
 });

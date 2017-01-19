@@ -47,6 +47,12 @@ Alehos.prototype.getHlrFn = function(type) {
     case this.code.REQUEST_DEC_TEMPERATURE:
     fn = this.temperature;
     break;
+
+    case this.code.REQUEST_SET_PERCENTAGE:
+    case this.code.REQUEST_INC_PERCENTAGE:
+    case this.code.REQUEST_DEC_PERCENTAGE:
+    fn = this.percentage;
+    break;
   }
   return fn;
 };
