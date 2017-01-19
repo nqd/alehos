@@ -142,5 +142,13 @@ describe('Alehos', () => {
       // then
       expect(hlrFn).to.eq(app.percentage);
     });
+    it('should call health check fnc from health check event', () => {
+      // given
+      const event = events.reqHealthCheck;
+      // when
+      let hlrFn = app.getHlrFn(event.header.name);
+      // then
+      expect(hlrFn).to.eq(app.healthCheck);
+    });
   });
 });
