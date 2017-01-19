@@ -36,6 +36,11 @@ Alehos.prototype.getHlrFn = function(type) {
     case this.code.REQUEST_DISCOVER:
     fn = this.discover;
     break;
+
+    case this.code.REQUEST_TURN_ON:
+    case this.code.REQUEST_TURN_OFF:
+    fn = this.onoff;
+    break;
   }
   return fn;
 };

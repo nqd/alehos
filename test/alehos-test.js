@@ -70,34 +70,53 @@ describe('Alehos', () => {
       app.healthCheck = function(_req, _cb) {};
     });
     let expect = require('chai').expect;
-    it('should call discovery fnc from discovery event', (done) => {
+    it('should call discovery fnc from discovery event', () => {
       // given
       const event = events.reqDiscovery;
       // when
       let hlrFn = app.getHlrFn(event.header.name);
       // then
       expect(hlrFn).to.eq(app.discover);
-      done();
     });
-    it('should call on/off fnc from turnOn event', (done) => {
+    it('should call on/off fnc from turnOn event', () => {
       // given
       const event = events.reqTurnOn;
       // when
       let hlrFn = app.getHlrFn(event.header.name);
       // then
       expect(hlrFn).to.eq(app.onoff);
-      done();
     });
-    it('should call on/off fnc from turnOff event', (done) => {
+    it('should call on/off fnc from turnOff event', () => {
       // given
       const event = events.reqTurnOff;
       // when
       let hlrFn = app.getHlrFn(event.header.name);
       // then
       expect(hlrFn).to.eq(app.onoff);
-      done();
     });
-    // it('should call discovery fnc', (done) => {
-    // });
+    it('should call temperature fnc from set target temperature event', () => {
+      // given
+      const event = events.reqSetTargetTemperature;
+      // when
+      let hlrFn = app.getHlrFn(event.header.name);
+      // then
+      expect(hlrFn).to.eq(app.temperature);
+    });
+    it('should call temperature fnc from inc target temperature event', () => {
+      // given
+      const event = events.reqIncTargetTemperature;
+      // when
+      let hlrFn = app.getHlrFn(event.header.name);
+      // then
+      expect(hlrFn).to.eq(app.temperature);
+    });
+    it('should call temperature fnc from dec target temperature event', () => {
+      // given
+      const event = events.decIncTargetTemperature;
+      // when
+      let hlrFn = app.getHlrFn(event.header.name);
+      // then
+      expect(hlrFn).to.eq(app.temperature);
+    });
   });
 });
