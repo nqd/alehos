@@ -112,7 +112,7 @@ describe('Alehos', () => {
     });
     it('should call temperature fnc from dec target temperature event', () => {
       // given
-      const event = events.decIncTargetTemperature;
+      const event = events.reqDecTargetTemperature;
       // when
       let hlrFn = app.getHlrFn(event.header.name);
       // then

@@ -41,6 +41,12 @@ Alehos.prototype.getHlrFn = function(type) {
     case this.code.REQUEST_TURN_OFF:
     fn = this.onoff;
     break;
+
+    case this.code.REQUEST_SET_TEMPERATURE:
+    case this.code.REQUEST_INC_TEMPERATURE:
+    case this.code.REQUEST_DEC_TEMPERATURE:
+    fn = this.temperature;
+    break;
   }
   return fn;
 };
