@@ -3,7 +3,7 @@ let Alehos = require('../index');
 let events = require('./events.json');
 let expect = require('chai').expect;
 
-describe('Utils', () => {
+describe('Proc', () => {
   let app;
   beforeEach(() => {
     app = new Alehos();
