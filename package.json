@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nqd/alexa-homeskill-sdk.git"
+    "url": "git+https://github.com/nqd/alehos.git"
   },
   "keywords": [
     "alexa",
@@ -21,9 +21,9 @@
   "author": "Dinh Nguyen <dinh.nguyen@veriksystems.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nqd/alexa-homeskill-sdk/issues"
+    "url": "https://github.com/nqd/alehos/issues"
   },
-  "homepage": "https://github.com/nqd/alexa-homeskill-sdk#readme",
+  "homepage": "https://github.com/nqd/alehos#readme",
   "devDependencies": {
     "babel-eslint": "^7.1.1",
     "chai": "^3.5.0",
