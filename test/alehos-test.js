@@ -2,7 +2,6 @@
 
 let Alehos = require('../index');
 let sinon = require('sinon');
-let expect = require('chai').expect;
 let events = require('./events.json');
 let _ = require('underscore');
 
@@ -16,12 +15,12 @@ describe('Alehos', () => {
     const event = events.reqHealthCheck;
     const context = {};
 
-    app.handler(event, context, (err, payload) => {
-      expect(err).to.be.null;
-      expect(payload).to.be.instanceof(Object)
-        .and.has.property('header')
-        .that.has.property('name', 'UnsupportedOperationError');
+    let cbSpy = sinon.spy();
+    app.handler(event, context, cbSpy);
+    let matched = sinon.match(obj => {
+      return obj.header.name === 'UnsupportedOperationError';
     });
+    sinon.assert.calledWith(cbSpy, null, matched);
   });
 
   it('should call the equivalent fuc with provided request type', () => {
