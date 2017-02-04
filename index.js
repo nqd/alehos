@@ -1,12 +1,12 @@
 'use strict';
 
 let code = require('./lib/code');
-let utils = require('./lib/utils');
+let proc = require('./lib/proc');
 
 let Alehos = function() {
   this.code = code;
-  this.getHlrFn = utils.getHlrFn;
-  this.genRes = utils.genRes;
+  this.getHlrFn = proc.getHlrFn;
+  this.genRes = proc.genRes;
 };
 
 Alehos.prototype.handler = function(event, context, cb) {
