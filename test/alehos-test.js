@@ -60,4 +60,27 @@ describe('Alehos', () => {
       sinon.match(matched)
     );
   });
+
+  it('should return the response payload for error TargetOfflineError', () => {
+    // given
+    const event = events.reqDiscovery;
+    const context = {};
+    app.discover = (req, cb) => {
+      let res = new Error();
+      res.code = app.code.ERROR_TARGET_OFFLINE;
+      return cb(res);
+    };
+    // when
+    let resSpy = sinon.spy();
+    app.handler(event, context, resSpy);
+    // then
+    let matched = obj => {
+      return obj.header.name === 'TargetOfflineError' &&
+        _.isEqual(obj.payload, {});
+    };
+    sinon.assert.calledWith(resSpy,
+      null,
+      sinon.match(matched)
+    );
+  });
 });
