@@ -1,4 +1,4 @@
-# Alehos, Alexa Home Skill SDK
+# Alehos, Alexa homeskill built quickly
 
 [![Build Status](https://travis-ci.org/nqd/alehos.svg?branch=master)](https://travis-ci.org/nqd/alehos)
 
