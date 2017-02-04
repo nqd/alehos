@@ -45,7 +45,7 @@ describe('Alehos', () => {
     };
     // app.healthCheck = sinon.stub().yields(healthCheckRes);
     app.healthCheck = (req, cb) => {
-      return cb(healthCheckRes);
+      return cb(null, healthCheckRes);
     };
     // when
     let resSpy = sinon.spy();
@@ -66,9 +66,9 @@ describe('Alehos', () => {
     const event = events.reqDiscovery;
     const context = {};
     app.discover = (req, cb) => {
-      let res = new Error();
-      res.code = app.code.ERROR_TARGET_OFFLINE;
-      return cb(res);
+      let err = new Error();
+      err.code = app.code.ERROR_TARGET_OFFLINE;
+      return cb(err);
     };
     // when
     let resSpy = sinon.spy();

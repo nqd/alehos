@@ -18,16 +18,22 @@ Alehos.prototype.handler = function(event, context, cb) {
 
   this._handFn = this.getHlrFn(type);
 
+  let _handFnCb = (err, payload) => {
+    let res = {
+      err: err,
+      payload: payload
+    };
+    return cb(null, this.genRes(req, res));
+  };
+
   // without supported function
   if (this._handFn === undefined) {
     let err = new Error();
     err.code = this.code.ERROR_UNSUPPORTED_OPERATION;
-    return cb(null, this.genRes(req, err));
+    return _handFnCb(err);
   }
-
-  this._handFn(req, res => {
-    return cb(null, this.genRes(req, res));
-  });
+  // else, call the handler function
+  this._handFn(req, _handFnCb);
 };
 
 module.exports = Alehos;
