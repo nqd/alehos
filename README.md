@@ -6,6 +6,8 @@ So that you dont need to write boilerplate code for Alexa Home Skill with Nodejs
 
 FYI, look at [API reference](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/smart-home-skill-api-reference).
 
+Note: this is the WIP, API may change.
+
 # How to use
 
 ```
