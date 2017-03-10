@@ -49,6 +49,8 @@ Alehos.prototype._getHlrFn = function(type) {
     case this.code.REQUEST_SET_TEMPERATURE:
     case this.code.REQUEST_INC_TEMPERATURE:
     case this.code.REQUEST_DEC_TEMPERATURE:
+    case this.code.REQUEST_GET_TEMPERATURE_READING:
+    case this.code.REQUEST_GET_TARGET_TEMPERATURE:
     fn = this.handlers['temperature'];
     break;
 

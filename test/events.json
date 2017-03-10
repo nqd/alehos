@@ -120,6 +120,46 @@
       }
     }
   },
+  "reqGetTemperatureReading": {
+    "header": {
+      "messageId": "[UUID for message, in canonical hexadecimal format]",
+      "name": "GetTemperatureReadingRequest",
+      "namespace": "Alexa.ConnectedHome.Query",
+      "payloadVersion": "2"
+    },
+    "payload": {
+      "accessToken": "[OAuth token here]",
+      "appliance": {
+        "applianceId": "[Device ID for the specified thermostat, thermometer, or temperature sensor]",
+        "additionalApplianceDetails": {
+          "extraDetail1": "optionalDetailForSkillAdapterToReferenceThisDevice",
+          "extraDetail2": "There can be multiple entries",
+          "extraDetail3": "but they should only be used for reference purposes.",
+          "extraDetail4": "Not a suitable place to maintain current device state"
+        }
+      }
+    }
+  },
+  "reqGetTargetTemperature": {
+    "header": {
+      "messageId": "[UUID for message, in canonical hexadecimal format]",
+      "name": "GetTargetTemperatureRequest",
+      "namespace": "Alexa.ConnectedHome.Query",
+      "payloadVersion": "2"
+    },
+    "payload": {
+      "accessToken": "[OAuth token here]",
+      "appliance": {
+        "applianceId": "[Device ID for the specified thermostat]",
+        "additionalApplianceDetails": {
+          "extraDetail1": "optionalDetailForSkillAdapterToReferenceThisDevice",
+          "extraDetail2": "There can be multiple entries",
+          "extraDetail3": "but they should only be used for reference purposes.",
+          "extraDetail4": "This is not a suitable place to maintain current device state"
+        }
+      }
+    }
+  },
   "reqSetPercentage": {
     "header": {
       "messageId": "95872301-4ff6-4146-b3a4-ae84c760c13e",

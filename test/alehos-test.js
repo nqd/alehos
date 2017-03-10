@@ -122,10 +122,12 @@ describe('getHlrFn', () => {
       lock: function lockHlr(_req, _cb) {},
     };
   });
+
   it('should call discovery fnc from discovery event', () => {
     const event = events.reqDiscovery;
     expect(app._getHlrFn(event.header.name)).to.eq(app.handlers.discover);
   });
+
   it('should call on/off fnc from turnOn event', () => {
     const event = events.reqTurnOn;
     expect(app._getHlrFn(event.header.name)).to.eq(app.handlers.onoff);
@@ -134,6 +136,7 @@ describe('getHlrFn', () => {
     const event = events.reqTurnOff;
     expect(app._getHlrFn(event.header.name)).to.eq(app.handlers.onoff);
   });
+
   it('should call temperature fnc from set target temperature event', () => {
     const event = events.reqSetTargetTemperature;
     expect(app._getHlrFn(event.header.name)).to.eq(app.handlers.temperature);
@@ -146,6 +149,15 @@ describe('getHlrFn', () => {
     const event = events.reqDecTargetTemperature;
     expect(app._getHlrFn(event.header.name)).to.eq(app.handlers.temperature);
   });
+  it('should call temperature fnc for get temperature reading event', () => {
+    const event = events.reqGetTemperatureReading;
+    expect(app._getHlrFn(event.header.name)).to.eq(app.handlers.temperature);
+  });
+  it('should call temperature fnc for get target temperature event', () => {
+    const event = events.reqGetTargetTemperature;
+    expect(app._getHlrFn(event.header.name)).to.eq(app.handlers.temperature);
+  });
+
   it('should call percentage fnc from set percentage event', () => {
     const event = events.reqSetPercentage;
     expect(app._getHlrFn(event.header.name)).to.eq(app.handlers.percentage);
@@ -158,10 +170,12 @@ describe('getHlrFn', () => {
     const event = events.reqDecPercentage;
     expect(app._getHlrFn(event.header.name)).to.eq(app.handlers.percentage);
   });
+
   it('should call health check fnc from health check event', () => {
     const event = events.reqHealthCheck;
     expect(app._getHlrFn(event.header.name)).to.eq(app.handlers.healthCheck);
   });
+
   it('should call lock fnc for get lock state event', () => {
     const event = events.reqGetLockState;
     expect(app._getHlrFn(event.header.name)).to.eq(app.handlers.lock);
