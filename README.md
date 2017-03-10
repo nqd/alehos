@@ -4,9 +4,8 @@
 
 So that you dont need to write boilerplate code for Alexa Home Skill with Nodejs.
 
-FYI, look at [API reference](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/smart-home-skill-api-reference).
 
-Note: this is the WIP, API may change.
+Alehos support routing for the [Smart Home Skill API updated February 28, 2017](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/smart-home-skill-api-reference).
 
 # How to use
 
@@ -33,13 +32,14 @@ exports.handler = function(event, context, cb) {
 ```
 
 ## supported functions
-- `discover` for discovery
-- `onoff` for turn on and turn off handling
-- `temperature` for set temperature, increase temperature, decrease temperature handling
-- `percentage` for set percentage, increase percentage, decrease percentage
-- `healthCheck` for service availability handling
+- `discover`: discovery
+- `onoff`: turn on and turn off handling
+- `temperature`: set temperature, increase temperature, decrease temperature handling
+- `percentage`: set percentage, increase percentage, decrease percentage
+- `healthCheck`: service availability handling
+- `lock`: query and controll door lock
 
-If you don't provide equivalent function, the response will be UnsupportedOperationError.
+If you don't provide equivalent function, the response will be `UnsupportedOperationError`.
 
 ## req
 `req` is actually the `event` and `context` object from lambda request. You should looking at event for request message.
