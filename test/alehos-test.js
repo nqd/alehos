@@ -185,3 +185,63 @@ describe('getHlrFn', () => {
     expect(app._getHlrFn(event.header.name)).to.eq(app.handlers.lock);
   });
 });
+
+describe('Response header name', () => {
+  let utils = require('../lib/utils');
+  it('for discovery', () => {
+    expect(utils.createResHeaderName('DiscoverAppliancesRequest'))
+    .to.be.eq('DiscoverAppliancesResponse');
+  });
+  it('for turn on', () => {
+    expect(utils.createResHeaderName('TurnOnRequest'))
+    .to.be.eq('TurnOnConfirmation');
+  });
+  it('for turn off', () => {
+    expect(utils.createResHeaderName('TurnOffRequest'))
+    .to.be.eq('TurnOffConfirmation');
+  });
+  it('for get lock state', () => {
+    expect(utils.createResHeaderName('GetLockStateRequest'))
+    .to.be.eq('GetLockStateResponse');
+  });
+  it('for set lock state', () => {
+    expect(utils.createResHeaderName('SetLockStateRequest'))
+    .to.be.eq('SetLockStateConfirmation');
+  });
+  it('for get temperature reading', () => {
+    expect(utils.createResHeaderName('GetTemperatureReadingRequest'))
+    .to.be.eq('GetTemperatureReadingResponse');
+  });
+  it('for get target temperature', () => {
+    expect(utils.createResHeaderName('GetTargetTemperatureRequest'))
+    .to.be.eq('GetTargetTemperatureResponse');
+  });
+  it('for set target temperature', () => {
+    expect(utils.createResHeaderName('SetTargetTemperatureRequest'))
+    .to.be.eq('SetTargetTemperatureConfirmation');
+  });
+  it('for inc target temperature', () => {
+    expect(utils.createResHeaderName('IncrementTargetTemperatureRequest'))
+    .to.be.eq('IncrementTargetTemperatureConfirmation');
+  });
+  it('for dec target temperature', () => {
+    expect(utils.createResHeaderName('DecrementTargetTemperatureRequest'))
+    .to.be.eq('DecrementTargetTemperatureConfirmation');
+  });
+  it('for set percentage', () => {
+    expect(utils.createResHeaderName('SetPercentageRequest'))
+    .to.be.eq('SetPercentageConfirmation');
+  });
+  it('for inc percentage', () => {
+    expect(utils.createResHeaderName('IncrementPercentageRequest'))
+    .to.be.eq('IncrementPercentageConfirmation');
+  });
+  it('for dec percentage', () => {
+    expect(utils.createResHeaderName('DecrementPercentageRequest'))
+    .to.be.eq('DecrementPercentageConfirmation');
+  });
+  it('for healthcheck', () => {
+    expect(utils.createResHeaderName('HealthCheckRequest'))
+    .to.be.eq('HealthCheckResponse');
+  });
+});
