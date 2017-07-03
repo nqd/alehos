@@ -1,6 +1,7 @@
 # Alehos, Alexa homeskill built quickly
 
 [![Build Status](https://travis-ci.org/nqd/alehos.svg?branch=master)](https://travis-ci.org/nqd/alehos)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 So that you dont need to write boilerplate code for Alexa Home Skill with Nodejs.
 
@@ -10,24 +11,24 @@ Alehos support routing for the [Smart Home Skill API updated February 28, 2017](
 # How to use
 
 ```
-var Alehos = require('alehos);
+let Alehos = require('alehos)
 
-var alehos = new Alehos();
+let alehos = new Alehos()
 
 alehos.registerHandler('discovery', (req, cb) => {
   // get the payload
-  cb(null, payload);
-});
+  cb(null, payload)
+})
 
 alehos.registerHandler('onoff', (req, cb) => {
   // check if the request is on/off by looking at req.event.header.name
   // action
   // finally return OK
-  cb(null);
-};
+  cb(null)
+}
 
 exports.handler = function(event, context, cb) {
-  alehos.handle(event, context, cb);
+  alehos.handle(event, context, cb)
 }
 ```
 
@@ -51,13 +52,10 @@ If you want to return error, generate an new error object, with code of the inte
 Example:
 ```
 // if the device is un reachable
-var err = new Error();
-err.code = alehos.code.ERROR_TARGET_OFFLINE;
-return cb(err);
+let err = new Error()
+err.code = alehos.code.ERROR_TARGET_OFFLINE
+return cb(err)
 ```
-
-# Coding style
-See [https://github.com/felixge/node-style-guide](https://github.com/felixge/node-style-guide)
 
 # License
 
