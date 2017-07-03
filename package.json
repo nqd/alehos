@@ -4,7 +4,7 @@
   "description": "Make Alexa homeskill quick",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint .",
+    "lint": "standard --env mocha",
     "test": "npm run lint && mocha --bail --reporter spec 2>&1",
     "test-travis": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -R spec ./test/*",
     "watch": "mocha -w test/*"
@@ -34,6 +34,7 @@
     "mocha-lcov-reporter": "^1.2.0",
     "pre-commit": "^1.2.2",
     "sinon": "^1.17.7",
+    "standard": "^10.0.2",
     "underscore": "^1.8.3"
   },
   "pre-commit": [
