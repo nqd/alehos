@@ -244,4 +244,20 @@ describe('Response header name', () => {
     expect(utils.createResHeaderName('HealthCheckRequest'))
     .to.be.eq('HealthCheckResponse')
   })
+  it('for set color request', () => {
+    expect(utils.createResHeaderName('SetColorRequest'))
+    .to.be.eq('SetColorConfirmation')
+  })
+  it('for set color temperature request', () => {
+    expect(utils.createResHeaderName('SetColorTemperatureRequest'))
+    .to.be.eq('SetColorTemperatureConfirmation')
+  })
+  it('for increasing color temperature request', () => {
+    expect(utils.createResHeaderName('IncrementColorTemperatureRequest'))
+    .to.be.eq('IncrementColorTemperatureConfirmation')
+  })
+  it('for decreasing color temperature request', () => {
+    expect(utils.createResHeaderName('DecrementColorTemperatureRequest'))
+    .to.be.eq('DecrementColorTemperatureConfirmation')
+  })
 })
