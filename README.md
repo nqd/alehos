@@ -39,6 +39,7 @@ exports.handler = function(event, context, cb) {
 - `percentage`: set percentage, increase percentage, decrease percentage
 - `healthCheck`: service availability handling
 - `lock`: query and controll door lock
+- `color`: controll [tunable lighting](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/smart-home-skill-api-reference#tunable-lighting-control-messages)
 
 If you don't provide equivalent function, the response will be `UnsupportedOperationError`.
 
