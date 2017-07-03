@@ -119,7 +119,8 @@ describe('getHlrFn', () => {
       temperature: function temperatureHlr (_req, _cb) {},
       percentage: function percentageHlr (_req, _cb) {},
       healthCheck: function healthCheckHlr (_req, _cb) {},
-      lock: function lockHlr (_req, _cb) {}
+      lock: function lockHlr (_req, _cb) {},
+      color: function colorHlr (_req, _cb) {}
     }
   })
 
@@ -184,6 +185,23 @@ describe('getHlrFn', () => {
     const event = events.reqSetLockState
     expect(app._getHlrFn(event.header.name)).to.eq(app.handlers.lock)
   })
+  // color
+  it('should call color for setting color event', () => {
+    const event = events.reqSetColor
+    expect(app._getHlrFn(event.header.name)).to.eq(app.handlers.color)
+  })
+  it('should call color for setting color temperature event', () => {
+    const event = events.reqSetColorTemperature
+    expect(app._getHlrFn(event.header.name)).to.eq(app.handlers.color)
+  })
+  it('should call color for increasing color temperature event', () => {
+    const event = events.reqIncColorTemperature
+    expect(app._getHlrFn(event.header.name)).to.eq(app.handlers.color)
+  })
+  it('should call color for decreasing color temperature event', () => {
+    const event = events.reqDecColorTemperature
+    expect(app._getHlrFn(event.header.name)).to.eq(app.handlers.color)
+  })
 })
 
 describe('Response header name', () => {
@@ -243,5 +261,21 @@ describe('Response header name', () => {
   it('for healthcheck', () => {
     expect(utils.createResHeaderName('HealthCheckRequest'))
     .to.be.eq('HealthCheckResponse')
+  })
+  it('for set color request', () => {
+    expect(utils.createResHeaderName('SetColorRequest'))
+    .to.be.eq('SetColorConfirmation')
+  })
+  it('for set color temperature request', () => {
+    expect(utils.createResHeaderName('SetColorTemperatureRequest'))
+    .to.be.eq('SetColorTemperatureConfirmation')
+  })
+  it('for increasing color temperature request', () => {
+    expect(utils.createResHeaderName('IncrementColorTemperatureRequest'))
+    .to.be.eq('IncrementColorTemperatureConfirmation')
+  })
+  it('for decreasing color temperature request', () => {
+    expect(utils.createResHeaderName('DecrementColorTemperatureRequest'))
+    .to.be.eq('DecrementColorTemperatureConfirmation')
   })
 })

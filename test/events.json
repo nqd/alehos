@@ -254,5 +254,73 @@
       },
       "lockState": "LOCKED"
     }
+  },
+  "reqSetColor": {
+    "header": {
+      "messageId": "ABC-123-DEF-456",
+      "namespace": "Alexa.ConnectedHome.Control",
+      "name": "SetColorRequest",
+      "payloadVersion": "2"
+    },
+    "payload": {
+      "accessToken": "[OAuth Token here]",
+      "appliance": {
+        "applianceId": "[Device ID for RGB-capable bulb]",
+        "additionalApplianceDetails": {}
+      },
+      "color": {
+        "hue": 0.0,
+        "saturation": 1.0000,
+        "brightness": 1.0000
+      }
+    }
+  },
+  "reqSetColorTemperature": {
+    "header": {
+      "messageId": "ABC-123-DEF-456",
+      "namespace": "Alexa.ConnectedHome.Control",
+      "name": "SetColorTemperatureRequest",
+      "payloadVersion": "2"
+    },
+    "payload": {
+      "accessToken": "[OAuth Token here]",
+      "appliance": {
+        "additionalApplianceDetails": {},
+        "applianceId": "[Device ID for white-capable bulb]"
+      },
+      "colorTemperature": {
+        "value": 2700
+      }
+    }
+  },
+  "reqIncColorTemperature": {
+    "header": {
+      "messageId": "ABC-123-DEF-456",
+      "name": "IncrementColorTemperatureRequest",
+      "namespace": "Alexa.ConnectedHome.Control",
+      "payloadVersion": "2"
+    },
+    "payload": {
+      "accessToken": "[OAuth Token here]",
+      "appliance": {
+        "additionalApplianceDetails": {},
+        "applianceId": "[Device ID for tunable white-capable bulb]"
+      }
+    }
+  },
+  "reqDecColorTemperature": {
+    "header": {
+      "messageId": "ABC-123-DEF-456",
+      "name": "DecrementColorTemperatureRequest",
+      "namespace": "Alexa.ConnectedHome.Control",
+      "payloadVersion": "2"
+    },
+    "payload": {
+      "accessToken": "[OAuth Token here]",
+      "appliance": {
+        "additionalApplianceDetails": {},
+        "applianceId": "[Device ID for tunable white-capable bulb]"
+      }
+    }
   }
 }

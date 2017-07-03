@@ -64,6 +64,13 @@ Alehos.prototype._getHlrFn = function (type) {
     case this.code.REQUEST_SET_LOCK_STATE:
       fn = this.handlers['lock']
       break
+
+    case this.code.REQUEST_SET_COLOR:
+    case this.code.REQUEST_SET_COLOR_TEMPERATURE:
+    case this.code.REQUEST_INC_COLOR_TEMPERATURE:
+    case this.code.REQUEST_DEC_COLOR_TEMPERATURE:
+      fn = this.handlers['color']
+      break
   }
   return fn
 }
