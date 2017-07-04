@@ -6,7 +6,7 @@
 So that you dont need to write boilerplate code for Alexa Home Skill with Nodejs.
 
 
-Alehos support routing for the [Smart Home Skill API updated ~~February 28, 2017~~ April 7, 2017](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/smart-home-skill-api-reference).
+Alehos support routing for the [Smart Home Skill API updated ~~February 28, 2017~~ ~~April 7, 2017~~ June 22, 2017](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/smart-home-skill-api-reference).
 
 # How to use
 
@@ -40,6 +40,7 @@ exports.handler = function(event, context, cb) {
 - `healthCheck`: service availability handling
 - `lock`: query and controll door lock
 - `color`: controll [tunable lighting](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/smart-home-skill-api-reference#tunable-lighting-control-messages)
+- `camera`: query [camera streaming](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/smart-home-skill-api-reference#smart-home-camera-messages)
 
 If you don't provide equivalent function, the response will be `UnsupportedOperationError`.
 
