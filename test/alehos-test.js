@@ -120,7 +120,8 @@ describe('getHlrFn', () => {
       percentage: function percentageHlr (_req, _cb) {},
       healthCheck: function healthCheckHlr (_req, _cb) {},
       lock: function lockHlr (_req, _cb) {},
-      color: function colorHlr (_req, _cb) {}
+      color: function colorHlr (_req, _cb) {},
+      camera: function cameraHlr (_req, _cb) {}
     }
   })
 
@@ -202,6 +203,11 @@ describe('getHlrFn', () => {
     const event = events.reqDecColorTemperature
     expect(app._getHlrFn(event.header.name)).to.eq(app.handlers.color)
   })
+  // camera
+  it('should call camera for retrieve camera stream uri event', () => {
+    const event = events.reqRetrieveCameraStreamUri
+    expect(app._getHlrFn(event.header.name)).to.eq(app.handlers.camera)
+  })
 })
 
 describe('Response header name', () => {
@@ -277,5 +283,10 @@ describe('Response header name', () => {
   it('for decreasing color temperature request', () => {
     expect(utils.createResHeaderName('DecrementColorTemperatureRequest'))
     .to.be.eq('DecrementColorTemperatureConfirmation')
+  })
+  // camera
+  it('for retreieving camera stream uri request', () => {
+    expect(utils.createResHeaderName('RetrieveCameraStreamUriRequest'))
+    .to.be.eq('RetrieveCameraStreamUriResponse')
   })
 })

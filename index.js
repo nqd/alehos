@@ -71,6 +71,10 @@ Alehos.prototype._getHlrFn = function (type) {
     case this.code.REQUEST_DEC_COLOR_TEMPERATURE:
       fn = this.handlers['color']
       break
+
+    case this.code.REQUEST_RETRIEVE_CAMERA_STREAM_URI:
+      fn = this.handlers['camera']
+      break
   }
   return fn
 }
