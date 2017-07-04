@@ -322,5 +322,26 @@
         "applianceId": "[Device ID for tunable white-capable bulb]"
       }
     }
+  },
+  "reqRetrieveCameraStreamUri": {
+    "header": {
+      "namespace": "Alexa.ConnectedHome.Query",
+      "name": "RetrieveCameraStreamUriRequest",
+      "payloadVersion": "2",
+      "messageId": "ABC-123-DEF-456"
+    },
+    "payload": {
+      "accessToken": "[OAuth Token here]",
+      "directedId": "[directed customer id]",
+      "appliance": {
+        "applianceId": "[Device ID for the camera]",
+        "additionalApplianceDetails": {
+          "extraDetail1": "optionalDetailForSkillAdapterToReferenceThisDevice",
+          "extraDetail2": "There can be multiple entries",
+          "extraDetail3": "but they should only be used for reference purposes.",
+          "extraDetail4": "Not a suitable place to maintain current device state"
+        }
+      }
+    }
   }
 }
