@@ -15,7 +15,7 @@ let Alehos = require('alehos')
 
 let alehos = new Alehos()
 
-alehos.registerHandler('discovery', (req, cb) => {
+alehos.registerHandler('discover', (req, cb) => {
   // get the payload
   cb(null, payload)
 })
