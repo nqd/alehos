@@ -11,7 +11,7 @@ Alehos support routing for the [Smart Home Skill API updated ~~February 28, 2017
 # How to use
 
 ```
-let Alehos = require('alehos)
+let Alehos = require('alehos')
 
 let alehos = new Alehos()
 
@@ -25,7 +25,7 @@ alehos.registerHandler('onoff', (req, cb) => {
   // action
   // finally return OK
   cb(null)
-}
+})
 
 exports.handler = function(event, context, cb) {
   alehos.handle(event, context, cb)
