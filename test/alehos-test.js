@@ -87,6 +87,28 @@ describe('Alehos', () => {
       sinon.match(matched)
     )
   })
+  it('should return the default internal error', () => {
+    // given
+    const event = events.reqDiscovery
+    const context = {}
+    let discover = (req, cb) => {
+      let err = new Error()
+      return cb(err)
+    }
+    app.registerHandler('discover', discover)
+    // when
+    let resSpy = sinon.spy()
+    app.handle(event, context, resSpy)
+    // then
+    let matched = obj => {
+      return obj.header.name === 'DriverInternalError' &&
+        _.isEqual(obj.payload, {})
+    }
+    sinon.assert.calledWith(resSpy,
+      null,
+      sinon.match(matched)
+    )
+  })
 })
 
 let expect = require('chai').expect
